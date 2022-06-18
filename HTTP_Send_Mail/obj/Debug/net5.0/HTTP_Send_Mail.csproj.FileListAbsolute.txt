@@ -113,3 +113,4 @@ C:\C Sharp Solu\HTTP_Send_Mail\HTTP_Send_Mail\obj\Debug\net5.0\refint\HTTP_Send_
 C:\C Sharp Solu\HTTP_Send_Mail\HTTP_Send_Mail\obj\Debug\net5.0\HTTP_Send_Mail.pdb
 C:\C Sharp Solu\HTTP_Send_Mail\HTTP_Send_Mail\obj\Debug\net5.0\HTTP_Send_Mail.genruntimeconfig.cache
 C:\C Sharp Solu\HTTP_Send_Mail\HTTP_Send_Mail\obj\Debug\net5.0\ref\HTTP_Send_Mail.dll
+C:\C Sharp Solu\HTTP_Send_Mail\HTTP_Send_Mail\obj\Debug\net5.0\Razor\Views\Home\SendMail.cshtml.g.cs

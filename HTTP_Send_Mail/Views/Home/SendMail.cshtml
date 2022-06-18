@@ -1,12 +1,18 @@
-﻿@{
+﻿@using Microsoft.Extensions.Configuration
+@{
+    IConfiguration config = (IConfiguration)ViewBag.config;
     ViewBag.Title = "SendEmail";
 } 
 <h2> SendEmail </h2> <br/> <br/> 
 @{
     if(ViewBag.Error != null)
-        {<h2>@ViewBag.Error</h2>}
+        {
+            <h2>@ViewBag.Error</h2><br/> 
+            <h2>@ViewBag.check</h2><br/> 
+        }
 }
-<form method = "post" action = "SendEmail">
+
+<form method = "post" action = "SendMail">
     <div class = "container" >
         <span class = "form-control-static"> Receiver: </span>
         <input class = "form-control" type = "text" name = "receiver" />

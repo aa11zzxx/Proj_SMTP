@@ -8,17 +8,21 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace HTTP_Send_Mail.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public IConfiguration Configuration { get; }
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
             _logger = logger;
+            Configuration = configuration;
         }
+
+        //建構函式注入 configuration
 
         public IActionResult Index()
         {
@@ -34,8 +38,9 @@ namespace HTTP_Send_Mail.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult SendEmail(string receiver, string subject, string message)
+        public ActionResult SendMail(string receiver, string subject, string message)
         {
+            ViewBag.check = Configuration["MailPass"];
             try
             {
                 if (ModelState.IsValid)
@@ -43,6 +48,7 @@ namespace HTTP_Send_Mail.Controllers
                     var senderEmail = new MailAddress("aa11zzxx@gmail.com", "aa11zzxx");
                     var receiverEmail = new MailAddress(receiver, "Receiver");
                     var password = "jdfjchnljbzpnbbx";
+
                     var sub = subject;
                     var body = message;
                     var smtp = new SmtpClient
@@ -62,6 +68,7 @@ namespace HTTP_Send_Mail.Controllers
                     {
                         smtp.Send(mess);
                     }
+                    
                     return View();
                 }
             }
