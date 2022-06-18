@@ -45,9 +45,9 @@ namespace HTTP_Send_Mail.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var senderEmail = new MailAddress("aa11zzxx@gmail.com", "aa11zzxx");
+                    var senderEmail = new MailAddress(Configuration["MailAccount"], "Admin");
                     var receiverEmail = new MailAddress(receiver, "Receiver");
-                    var password = "jdfjchnljbzpnbbx";
+                    var password = Configuration["MailPass"];
 
                     var sub = subject;
                     var body = message;
